@@ -1,20 +1,4 @@
-﻿string [] Select (string[]array)
-{
-int size = array.Length;
-string[] tempArray = new string[size];
-int j=0;
-for (int i=0; i<size; i++)
-    if (array[i].Length <= 3)
-    {
-        tempArray[j] = array[i];
-        j +=1;
-    }
-string[] newArray = new string[j];
-for (int i=0; i<j; i++)   
-newArray[i] = tempArray[i]; 
-return newArray;
-}
-
+﻿
 void ShowArray(string[] array)
 
 {
@@ -27,6 +11,23 @@ void ShowArray(string[] array)
     }
 
     Console.WriteLine();
+}
+
+string [] Select (string[]array)
+{
+int j=0;    
+for (int i=0; i<array.Length; i++)
+    if (array[i].Length <= 3) j +=1;
+    
+string[] newArray = new string[j];
+for (int i=0, k=0; i<array.Length; i++)
+    if (array[i].Length <= 3)     
+    {
+        newArray[k] = array[i];
+        k +=1;
+    }
+
+return newArray;
 }
 
 Console.Write("Введите количество элементов массива: ");
